@@ -8,7 +8,9 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 
 function playRound(playerSelection) {
-    const playerSelection = "rock";
+
+    let playerScore = 0;
+    let computerScore = 0;
 
     function getComputerChoice() {
         const computerOption = ["rock", "paper", "scissors"];
