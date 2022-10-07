@@ -14,33 +14,41 @@ function playRound(playerSelection) {
         const computerOption = ["rock", "paper", "scissors"];
         return computerOption[Math.floor(Math.random() * computerOption.length)];
     }
-    
+
     function playRound() {
+        let choice = prompt("Rock, paper or scissors?")
+        const playerSelection = choice;
+        let result = "";
+
+        console.log("playerscore:" + playerScore);
+        console.log("compscore:" + computerScore);
 
         const computerSelection = getComputerChoice();
         console.log("computer selection:", computerSelection);
         console.log(playerSelection)
 
-        if(playerSelection === computerSelection) {
-            return "Tie!"
+        if ((playerSelection == "rock" && computerSelection == "scissors") ||
+            (playerSelection == "paper" && computerSelection == "rock") ||
+            (playerSelection == "scissors" && computerSelection == "paper")) {
+                playerScore++;
+                result = ("You win! " + playerSelection + " beats " + computerSelection)
+
+                if(playerScore == 5){
+                    result = ("You won the game!")
+                }
+            }
+
+        else if(playerSelection === computerSelection) {
+            result =  "Tie!"
         }
-        if(playerSelection == "rock" && computerSelection == "paper") {
-            return "You Lose! Paper beats Rock"
+            
+        else {
+            computerScore++;
+            result = ("You lose! " + computerSelection + " beats " + playerSelection)
+            if (computerScore == 5) {
+                result = ("You lost the Game!")
+            }
         }
-        if(playerSelection == "rock" && computerSelection == "scissors") {
-            return "You Win! Rock beats Scissors"
-        }
-        if(playerSelection == "paper" && computerSelection == "rock") {
-            return "You Win! Paper beats Rock"
-        }
-        if(playerSelection == "paper" && computerSelection == "scissors") {
-            return "You Lose! Scissors beats Paper"
-        }
-        if(playerSelection == "scissors" && computerSelection == "rock") {
-            return "You Lose! Rock beats Scissors"
-        }
-        if(playerSelection == "scissors" && computerSelection == "paper") {
-            return "You Win! Scissors beats Paper"
-        }
+        return result;
     }
 }
