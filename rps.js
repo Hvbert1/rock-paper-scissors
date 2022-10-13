@@ -6,6 +6,14 @@ function getComputerChoice() {
     return computerOption[Math.floor(Math.random() * computerOption.length)];
 }
 
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+    alert(button.id)
+  });
+});
+
 function playRound() {
     let choice = prompt("Rock, paper or scissors?")
     const playerSelection = choice;
