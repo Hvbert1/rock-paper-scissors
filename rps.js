@@ -30,10 +30,10 @@ function playRound() {
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissors" && computerSelection == "paper")) {
             playerScore++;
-            result = ("You win! " + playerSelection + " beats " + computerSelection);
+            result = ("You win! " + playerSelection + " beats " + computerSelection) + "<br/>player_score: " + playerScore + " comp_score: " + computerScore;
 
             if(playerScore == 5){
-                result = ("You won the game!");
+                result = ("You won the game!" + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
             }
         }
 
