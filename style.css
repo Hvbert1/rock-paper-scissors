@@ -1,4 +1,29 @@
-.container {
-    background: pink;
+.heading {
     display: flex;
+    justify-content: center;
 }
+.container {
+    background-color: #14213d;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    display: flex;
+    padding: 30px 50px;
+    border: none;
+    font-size: 50px;
+}
+
+#ret {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
