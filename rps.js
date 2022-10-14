@@ -1,20 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection = "";
+const buttons = document.querySelectorAll('button');
+
 
 function getComputerChoice() {
     const computerOption = ["rock", "paper", "scissors"];
     return computerOption[Math.floor(Math.random() * computerOption.length)];
 }
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-    playerSelection = button.id;
-    playRound();
-  });
-});
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
 function playRound() {
     let result = "";
@@ -34,6 +33,7 @@ function playRound() {
 
             if(playerScore == 5){
                 result = ("You won the game!" + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
+                disableButtons();
             }
         }
 
@@ -46,8 +46,16 @@ function playRound() {
         result = ("You lose! " + computerSelection + " beats " + playerSelection + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
         if (computerScore == 5) {
             result = ("You lost the Game!" + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
+            disableButtons();
         }
     }
     document.getElementById("ret").innerHTML = result;
 }
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+    playerSelection = button.id;
+    playRound();
+  });
+});
 
