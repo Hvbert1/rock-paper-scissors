@@ -2,13 +2,18 @@
     display: flex;
     justify-content: center;
 }
+
+.desc {
+    display: flex;
+    justify-content: center;
+}
 .container {
     background-color: #14213d;
     display: flex;
     align-items: center;
     padding: 50px;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 button {
@@ -16,7 +21,12 @@ button {
     padding: 30px 50px;
     border: none;
     font-size: 50px;
+    cursor: pointer;
 }
+
+.btn:hover {
+    background-color:#E5E5E5;
+  }
 
 #ret {
     display: flex;
