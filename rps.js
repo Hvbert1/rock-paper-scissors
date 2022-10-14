@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection = "";
 
 function getComputerChoice() {
     const computerOption = ["rock", "paper", "scissors"];
@@ -10,13 +11,12 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-    alert(button.id)
+    playerSelection = button.id;
+    playRound();
   });
 });
 
 function playRound() {
-    let choice = prompt("Rock, paper or scissors?")
-    const playerSelection = choice;
     let result = "";
 
     console.log("playerscore:" + playerScore);
@@ -43,11 +43,11 @@ function playRound() {
             
     else {
         computerScore++;
-        result = ("You lose! " + computerSelection + " beats " + playerSelection);
+        result = ("You lose! " + computerSelection + " beats " + playerSelection + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
         if (computerScore == 5) {
-            result = ("You lost the Game!");
+            result = ("You lost the Game!" + "<br/>player_score: " + playerScore + " comp_score: " + computerScore);
         }
     }
-    return result;
+    document.getElementById("ret").innerHTML = result;
 }
 
